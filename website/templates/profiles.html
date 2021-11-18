@@ -1,0 +1,91 @@
+{% extends "website_base.html" %}
+{% load static %}
+
+{% block extra_css %}
+
+{% endblock %}
+{% block content_inner %}
+            <div class="section-bg profiles_page">
+                <div class="container-fluid" style="padding-right: 0;">
+                    <div class="text overflow">
+                        <h1 class="text-center">Welcome to Heavens Wall</h1>
+                        <p><strong>In the name of our Lord</strong>, Indeed he has power over all things, He has brought you forth from the bellies of your mothers while you did not know any thing, He made for you hearing, eyesight,and hearts so that you may give thanks. He did not create all that except with reason. Indeed those who have faith and do righhteous deeds, their Lord guides them by the means of their faith.</p>
+
+                        <input type="hidden" id="start_count" name="start_count">
+                        <div >
+                            <div id="profileDiv">
+<!--                                <script>-->
+
+<!--                                </script>-->
+<!--                            {% for value in profile_obj %}-->
+<!--                                <div class="col-md-3">-->
+<!--                                    <div>-->
+<!--                                          <a href="{% url 'website:profile_view' slug=value.name %}"> <img src="{{ value.profile_image.url }}" alt="Texto Alternativo" class="img-thumbnail">-->
+<!--                                            <h3>{{value.name}}</h3>-->
+<!--                                          </a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            {% endfor %}-->
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $('#profileDiv').on('scroll', function() {
+            console.log("in profile dive")
+            let div = $(this).get(0);
+            if(div.scrollTop + div.clientHeight >= div.scrollHeight) {
+                // do the lazy loading here
+                console.log("new js");
+            }
+        });
+        console.log("outside");
+        $(window).scroll(function() {
+            if($(window).scrollTop() == $(document).height() - $(window).height()) {
+                console.log("in if")
+               // ajax call get data from server and append to the div
+               get_record = Math.floor(Math.random() * (10 - 4 ) + 4);
+               start_count = document.getElementById("start_count").value;
+               console.log(start_count,"start")
+               if(start_count == "" ){
+                    start_count = 1;
+               }
+               console.log(start_count,"start if")
+               get_record = parseInt(start_count) + parseInt(get_record)
+               console.log(get_record,"end count")
+               console.log(start_count,"start count")
+               $.ajax({
+                    url: "{% url 'website:get_profile_view' %}",
+                    type: "POST",
+                    data: {"csrfmiddlewaretoken": "{{csrf_token}}", "start_count":start_count, "end_count":get_record },
+                    dataType: "json",
+                    success: function(result) {
+                        console.log(result.latest_count)
+                        document.getElementById("start_count").value = result.latest_count
+                        console.log(result.profile_obj)
+                        var table = document.getElementById("profile");
+                        for (let i in table.rows) {
+                           let row = table.rows[i.name]
+                           let row = table.rows[i.profile_image]
+                           //iterate through rows
+                           //rows would be accessed using the "row" variable assigned in the for loop
+
+                           }
+                        }
+                    },
+                    error: function(error) {
+
+                    }
+               });
+            }
+        });
+    </script>
+{% endblock %}
+

@@ -1,0 +1,15 @@
+{
+  "SECRET_KEY":"tw$f0#$i$vtn5z#&t02x8mm=bpwdw-l2sv-yn!xxig=@h+i78lnptw",
+  "DATABASES": {
+      "auth": {
+          "ENGINE": "django.db.backends.mysql",
+          "HOST": "localhost",
+          "NAME": "heavens_wall",
+          "USER": "root",
+          "PASSWORD": "",
+          "OPTIONS": {
+            "sql_mode":"traditional"
+          }
+      }
+  }
+}

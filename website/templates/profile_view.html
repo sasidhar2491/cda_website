@@ -1,0 +1,151 @@
+{% extends "website_base.html" %}
+{% load static %}
+
+{% block extra_css %}
+
+{% endblock %}
+
+{% block content_inner %}
+            <div class="section-bg main-div single_page">
+                <div class="container-fluid overflow">
+                    <div class="text">
+                        <div class="profile-top">
+                            <img src="{{ profile_view_obj.profile_image.url }}" alt="" class="">
+                            <div class="profile_name">{{profile_view_obj.name}}</div>
+                        </div>
+                        <div class="row no-margin">
+                            <div class="col-sm-9">
+                                <div class="profil_box">
+                                    <h3 class="text-center">None</h3>
+                                    <hr>
+                                    <div class="col-sm-6">
+                                        <p><strong>Date of Arrival : </strong>{{profile_view_obj.arrival_date}}</p>
+                                        <p><strong>Date of Departure :</strong>{{profile_view_obj.departure_date}} </p>
+                                        <p><strong>Cause&nbsp;of death : </strong>{{profile_view_obj.cause_death}}</p>
+                                        <p><strong>Place of Death :</strong>{{profile_view_obj.place_death}}</p>
+                                        <p><strong>Other :</strong>{{profile_view_obj.other}} </p>
+                                        <p><strong>Resting place : </strong>{{profile_view_obj.rest_place}}</p>
+                                        <p><strong>Other names : </strong>{{profile_view_obj.other_names}}</p>
+                                        <p><strong>Ethnicity : </strong> {{profile_view_obj.ethnicity}}</p>
+                                        <p><strong><em>Alma mater/Profession </em>: </strong>{{profile_view_obj.alma}}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p><strong>Political movement : </strong>{{profile_view_obj.political}}</p>
+                                        <p><strong>Religion :</strong> {{profile_view_obj.religion}}</p>
+                                        <p><strong>Spouse(s) : </strong> {{profile_view_obj.spouse}} </p>
+                                        <p><strong>Children : </strong> {{profile_view_obj.children}}</p>
+                                        <p><strong>Parents :</strong> {{profile_view_obj.parents}}</p>
+                                        <p><strong>Known&nbsp;for : </strong>{{profile_view_obj.known}}<br></p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="profil_box">
+                                    <ul>
+                                        <li><img src="images/lastlogin.gif" width="16" height="15" alt="">Views since last login: <a>5</a></li>
+                                        <li><img src="images/total_items.gif" width="16" height="15" alt="">Total times viewed: <a>362</a></li>
+                                        <li><img src="images/mytoday.gif" width="16" height="15" alt="">My today`s biorhythm</li>
+                                    </ul>
+                                </div>
+                                <div class="videos-border">
+                                    <div class="panel panel-default mar-15">
+                                        <h3>Recent Comments </h3>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <ul class="demo1">
+                                                        <li class="news-item">
+                                                            <table cellpadding="4">
+                                                                <tr>
+                                                                    <td><img src="images/profile-1.jpg" width="60" class="img-circle" /></td>
+                                                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim... <a href="#">Read more...</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </li>
+                                                        <li class="news-item">
+                                                            <table cellpadding="4">
+                                                                <tr>
+                                                                    <td><img src="images/profile-2.jpg" width="60" class="img-circle" /></td>
+                                                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim... <a href="#">Read more...</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </li>
+                                                        <li class="news-item">
+                                                            <table cellpadding="4">
+                                                                <tr>
+                                                                    <td><img src="images/profile-3.jpg" width="60" class="img-circle" /></td>
+                                                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim... <a href="#">Read more...</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </li>
+                                                        <li class="news-item">
+                                                            <table cellpadding="4">
+                                                                <tr>
+                                                                    <td><img src="images/profile-4.jpg" width="60" class="img-circle" /></td>
+                                                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim... <a href="#">Read more...</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="row no-margin mar-15">
+                            <div class="videos-border">
+                                <h3>Recent Videos</h3>
+                                <div class="col-sm-6">
+
+                                    <video width="100%" controls>
+                                        <source src="videos/background.mp4" type="video/mp4">
+                                        <source src="videos/background.webm" type="video/webm">
+                                    </video>
+                                </div>
+                                <div class="col-sm-6">
+                                    <video width="100%" controls>
+                                        <source src="videos/background.mp4" type="video/mp4">
+                                        <source src="videos/background.webm" type="video/webm">
+                                    </video>
+
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+{% endblock %}
+{% block extra_js %}
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.bootstrap.newsbox.min.js"></script>
+    <script>
+        $(function() {
+            $(".demo1").bootstrapNews({
+                newsPerPage: 1,
+                autoplay: true,
+                pauseOnHover: true,
+                direction: 'up',
+                newsTickerInterval: 4000,
+                onToDo: function() {
+                    //console.log(this);
+                }
+            });
+        });
+    </script>
+
+{% endblock %}
